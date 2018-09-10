@@ -13,9 +13,10 @@ public class Server
 {
     public static void main( String[] args ) throws java.io.IOException, TimeoutException
     {
-    	File file = null;
+    	File file = new File("C:\\testfile.txt");
     	// ...(file is initialised)...
     	byte[] fileContent = Files.readAllBytes(file.toPath());
+    	MessageBuilder.withBody(fileData).setHeader("ContentType", fileType).build();
     	
     	ConnectionFactory factory = new ConnectionFactory();
     	factory.setHost("localhost");
